@@ -26,7 +26,7 @@ class Leetcode:
             }
         }
         """
-        
+
         t = Template(body)
         body = t.substitute(username=self.username)
         
@@ -39,5 +39,33 @@ class Leetcode:
             print("response : ", response.content)
     
 
-info = Leetcode("mukeremali112")
-info.fetch()
+class Codeforces:
+    def __init__(self, username):
+        self.username = username
+
+    def user_rating_change(self):
+        url = f"https://codeforces.com/api/user.rating?handle={self.username}"
+
+        response = requests.get(url=url)
+
+        if response.status_code == 200:
+            data = json.dumps(response.json(), indent=4)
+            print(data)
+        else:
+            print("response : ", response.content)
+    
+    def user_info(self):
+        url = f"https://codeforces.com/api/user.info?handles={self.username}"
+        response = requests.get(url=url)
+
+        if response.status_code == 200:
+            data = json.dumps(response.json(), indent=4)
+            print(data)
+        else:
+            print("response : ", response.content)
+
+leetcode = Leetcode("mukeremali112")
+leetcode.fetch()
+
+codeforces = Codeforces("mukeremali")
+codeforces.user_info()
