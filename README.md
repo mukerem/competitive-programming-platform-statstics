@@ -5,12 +5,17 @@ Fetch ranking and points from competitive programming sites like codeforces, kat
 ## Leetcode stats
  
 ```python
-from stats import Codeforces, Leetcode
+from stats import Leetcode
 
+info = Leetcode("mukeremali112")
+info.fetch()
+```
 
-leetcode = Leetcode("mukeremali112")
-leetcode.fetch()
+## Codeforces stats
+ 
+```python
+from stats import Codeforces
 
-codeforces = Codeforces("mukeremali")
-codeforces.user_info()
+info = Codeforces("mukeremali")
+info.user_info()
 ```
