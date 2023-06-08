@@ -19,3 +19,13 @@ from stats import Codeforces
 info = Codeforces("mukeremali")
 info.user_info()
 ```
+
+
+## Kattis stats
+ 
+```python
+from stats import Kattis
+
+info = Kattis("mukerem")
+info.user_info()
+```

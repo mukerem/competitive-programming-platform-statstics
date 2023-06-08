@@ -1,6 +1,8 @@
 import json
 import requests
+from bs4 import BeautifulSoup
 from string import Template
+
 
 class Leetcode:
     def __init__(self, username):
@@ -64,8 +66,34 @@ class Codeforces:
         else:
             print("response : ", response.content)
 
-leetcode = Leetcode("mukeremali112")
-leetcode.fetch()
 
-codeforces = Codeforces("mukeremali")
-codeforces.user_info()
+class Kattis:
+    def  __init__(self, username):
+        self.username = username
+    
+    def user_info(self):
+        url = f"https://open.kattis.com/users/{self.username}"
+        data = {"script": "true"}
+        page_content = requests.get(url=url, data=data)
+        soup = BeautifulSoup(page_content.text, "html.parser")
+ 
+        infos = soup.find_all('div', attrs={'class':'divider_list-item'})
+        data = {}
+        for info in infos:
+            spans = info.find_all('span')
+            if spans:
+                key = spans[0].get_text()
+                value = spans[1].get_text()
+                data[key] = value
+
+        print(data)
+
+
+info = Leetcode("mukeremali112")
+info.fetch()
+
+info = Codeforces("mukeremali")
+info.user_info()
+
+info = Kattis("mukerem")
+info.user_info()
