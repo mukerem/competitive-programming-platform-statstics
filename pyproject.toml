@@ -1,0 +1,18 @@
+[project]
+name = "coderanker"
+version = "0.0.1"
+authors = [
+  { name="Mukerem Ali", email="author@example.com" },
+]
+description = "Fetch ranking and points from competitive programming sites like codeforces, kattis, leetcode, CSES, hackerrank, hackerearth, project euler, ... "
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mukerem/competitive-programming-platform-statstics"
+"Bug Tracker" = "https://github.com/mukerem/competitive-programming-platform-statstics/issues"
