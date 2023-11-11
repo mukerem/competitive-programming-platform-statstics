@@ -46,7 +46,7 @@ class Codeforces:
         self.username = username
 
     def user_rating_change(self):
-        url = f"https://codeforces.com/api/user.rating?handle={self.username}"
+        url = f"https://codeforces.com/api/user.rating?handles={self.username}"
 
         response = requests.get(url=url)
 
